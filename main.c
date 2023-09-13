@@ -17,7 +17,7 @@ void say(char* text){
     while(letter != '\0'){
 
         if(letter >= 'a' && letter <= 'z') start = 'a';
-        else if (letter >= 'a' && letter <= 'z') start = 'A';
+        else if (letter >= 'A' && letter <= 'Z') start = 'A';
         else{
             buffer[index] = letter;
             printf("\r%s", buffer);
@@ -28,18 +28,14 @@ void say(char* text){
         }
         
 
-        for(char i = start;  i < letter; i++){
+        for(char i = start;  i <= letter; i++){
 
             //printf("\r");
             buffer[index] = i;
             printf("\r%s", buffer);
             fflush(stdout);
-            usleep(50000);
+            usleep(30000);
         }
-    
-        buffer[index] = letter;
-        printf("\r%s", buffer);
-        fflush(stdout);
         index++;
         letter = text[index];
         
